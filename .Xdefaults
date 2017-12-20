@@ -2,8 +2,11 @@ URxvt.scrollBar: false
 
 URxvt.depth: 32
 URxvt.background: rgba:0000/0000/0000/D000
+#URxvt.background: rgba:FFFF/FFFF/FFFF/FFFF
+#URxvt.foreground: Black
 URxvt.foreground: White
 
 URxvt.font: xft:xos4 Terminess Powerline-13: antialias=true
+#URxvt.font: xft:xos4 Terminess Powerline-28: antialias=true
 
 URxvt.keysym.Control-l: echo -ne '\\033c'\n

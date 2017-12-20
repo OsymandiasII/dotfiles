@@ -1,7 +1,7 @@
 # Outputs current branch info in prompt format
 function git_prompt_info() {
   local ref
-  if [[ "$(command pwd)" == "/home/bfor" ]]; then
+  if [[ "$(command git rev-parse --show-toplevel)" == "/home/bfor" ]]; then
       return
   fi
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then

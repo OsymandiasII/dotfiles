@@ -3,3 +3,5 @@
 	name = bifore
 [core]
 	autocrlf = input
+[credential]
+	helper = store

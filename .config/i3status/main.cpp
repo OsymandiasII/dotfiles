@@ -20,6 +20,7 @@ int main()
     blocks.push_back(make_pair(make_pair(1, 20), get_vpn));
     blocks.push_back(make_pair(make_pair(1, 10), get_temperature));
     blocks.push_back(make_pair(make_pair(1, 15), get_light));
+    blocks.push_back(make_pair(make_pair(1, 15), get_night));
     blocks.push_back(make_pair(make_pair(1, 10), get_sound));
     blocks.push_back(make_pair(make_pair(1, 20), get_dns));
     blocks.push_back(make_pair(make_pair(1, 10), get_wifi));
@@ -71,6 +72,7 @@ void handle_input()
     handlers["sound"] = handle_sound;
     handlers["spotify"] = handle_song;
     handlers["vpn"] = handle_vpn;
+    handlers["night"] = handle_night;
 
     string line;
     bool first = true;

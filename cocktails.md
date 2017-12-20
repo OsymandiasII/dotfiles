@@ -6,12 +6,29 @@
 - 10 ml tequila
 - 10 ml triple sec
 
-Combine all the ingredients with ice in a mixing glass, stir 40 times.
+Combine all the ingredients with ice in a mixing glass, shake.
 Serve in a coupe.
 
-```
-TODO: test shaken because lime juice
-```
+## WIP Ozone
+
+- 10 ml rum
+- 20 ml lychee liqueur
+- 5 ml blue curaçao liqueur
+- 20 ml simple syrup
+- 15 ml fresh-squeezed lime juice
+
+
+|       | Mark  | Observation |
+| ----- | ------| ----------- |
+| Color | ★★★★★ | light blue |
+| Smell | ★★☆☆☆ | faint lychee odour |
+| Taste | ★★★☆☆ | sweet, lychee taste |
+
+Perceived alcohol content : low
+
+### *TODO*
+> test with gin instead of rum  
+> test with less lemon
 
 
 ## Screaming Orgasm
@@ -25,6 +42,7 @@ TODO: test shaken because lime juice
 Shake all the ingredients with ice and serve over ice in a rocks glass.
 The Screaming Orgasm can also be served as a frozen drink. Blend the five
 ingredients with three-quarters cup of ice and serve in a large goblet.
+If there is no whipped cream, shake well.
 
 ## El Presidente
 
@@ -101,6 +119,10 @@ and garnish with the other sprig of mint.
 Shake the vodka, cointreau, cranberry juice, and lime juice with ice.
 Strain into a chilled cocktail glass and garnish with the orange peel,
 flamed for dramatic effect.
+
+```
+20 ml of vodka instead of 30 ml
+```
 
 ## Dry martini
 
@@ -190,16 +212,13 @@ soda. Do not garnish.
 - 30 ml gin
 - 20 ml simple syrup
 - 15 ml fresh-squeezed lemon juice
-- 1 or 2 dashe(s) of angostura bitters
+- 1 dashe of angostura bitters
 - lemon wedge, for garnish
 
 Combine the gin, syrup, lemon juice, and bitters in a mixing glass
 with ice and shake well. Strain into a rocks glass and garnish with the
 lemon wedge.
 
-```
-too much angostura if 1 part = 20 ml => only 1 dashes
-```
 
 ## Cape Codder
 

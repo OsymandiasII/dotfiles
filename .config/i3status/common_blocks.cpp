@@ -90,10 +90,27 @@ string get_wifi()
     return print(" " + to_string(percent) + "%", DARK_ORANGE, "wifi");
 }
 
+string get_night()
+{
+    int percent = ceil(stof(exec("xbacklight -get")));
+    if(percent < 10)
+        return print("", GREEN, "night");
+    return print("", RED, "night");
+}
+
 void handle_sound(int button)
 {
     if(button == 2)
         exec_background("pamixer -t");
     else
         exec_background("pavucontrol");
+}
+
+void handle_night(int button)
+{
+    int percent = ceil(stof(exec("xbacklight -get")));
+    if(percent <= 10)
+        exec_background("xbacklight -set 100");
+    else
+        exec_background("xbacklight -set 1");
 }

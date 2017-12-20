@@ -12,7 +12,9 @@ std::string get_sound();
 std::string get_temperature();
 std::string get_time();
 std::string get_wifi();
+std::string get_night();
 
 void handle_sound(int button);
+void handle_night(int button);
 
 #endif /* COMMON_BLOCKS_H_ */

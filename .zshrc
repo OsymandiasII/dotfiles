@@ -88,3 +88,17 @@ alias wifi-menu="sudo wifi-menu"
 alias clear="echo -ne '\\033c'"
 alias cal="cal -m -n 3"
 
+source .secret
+
+transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+    curl --progress-bar --upload-file $1 http://transfer.guenezan.me/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    echo;
+    rm -f $tmpfile;
+}
+
+
+# added by Pew
+source $(pew shell_config)

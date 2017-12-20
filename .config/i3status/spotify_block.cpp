@@ -20,7 +20,7 @@ string get_song()
     result = result.substr(result.find("\"xesam:title\"") + 13);
     result = result.substr(result.find("\"") + 1);
     result = result.substr(0, result.find("\""));
-    if(result.find("(") != -1)
+    if(result.find("(") > 1)
         result = result.substr(0, result.find("("));
     if(result.size() > 20 && result.find("-") != -1)
         result = result.substr(0, result.find("-"));
