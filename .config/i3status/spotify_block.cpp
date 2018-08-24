@@ -1,8 +1,7 @@
 #include "spotify_block.h"
 
+#include "colors.h"
 #include "utils.h"
-
-#define GREEN "0D8C2D"
 
 using namespace std;
 
@@ -26,7 +25,7 @@ string get_song()
         result = result.substr(0, result.find("-"));
     if(result.size() > 40)
         result = result.substr(0, 40) + "...";
-    return print(" " + trim(result), playing ? "000000" : "FFFFFF", "spotify");
+    return print(" " + trim(result), playing ? BLACK : WHITE, "spotify");
 }
 
 void handle_song(int button)

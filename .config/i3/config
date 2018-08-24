@@ -2,13 +2,13 @@
 set $mod Mod4
 
 #set the font
-font pango:Termimus 13
+font pango:Fantasque Sans Mono 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -17,8 +17,8 @@ set $text-color          #f3f4f5
 set $bg-color            #2f343f
 
 # start rofi
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 10 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Terminus 18"
-
+bindsym $mod+d exec rofi -show run -theme gruvbox-dark-hard
+bindsym $mod+Shift+d exec rofi -show ssh -theme gruvbox-dark-hard
 
 # change focus
 bindsym $mod+Left focus left
@@ -112,6 +112,14 @@ bar {
   mode dock
   colors {
     background #00000000
+    # text color used for blocks that do not have a color specified.
+    statusline $yellow
+    # workspaces section
+    #                    border  backgr. text
+    focused_workspace    $aqua $aqua $darkgray
+    inactive_workspace   $darkgray $darkgray $yellow
+    active_workspace     $darkgray $darkgray $yellow
+    urgent_workspace     $red $red $bg
   }
 }
 
@@ -134,7 +142,6 @@ exec compton -b
 # lock 
 
 bindsym $mod+l exec /home/bfor/software/epi3lock/epi3lock -i /home/bfor/.config/img/lock_background.png -e -f
-exec_always /home/bfor/software/epi3lock/epi3lock -i /home/bfor/.config/img/lock_background.png -e -f
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
@@ -144,3 +151,21 @@ bindsym XF86AudioMute exec --no-startup-id pamixer -t
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -time 250 -steps 100
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 250 -steps 100
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red

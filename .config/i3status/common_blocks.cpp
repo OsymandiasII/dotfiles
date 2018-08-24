@@ -1,12 +1,7 @@
 #include "common_blocks.h"
 
+#include "colors.h"
 #include "utils.h"
-
-#define GREEN "0D8C2D"
-#define YELLOW "F2CB05"
-#define ORANGE "F24F12"
-#define DARK_ORANGE "D02910"
-#define RED "AE030E"
 
 using namespace std;
 
@@ -31,8 +26,8 @@ string get_battery()
 string get_dns()
 {
     string grep = " | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}'";
-    if(exec("ip addr show wlp3s0" + grep).size() != 0
-            || exec("ip addr show eno1" + grep).size() !=  0)
+    if(exec("ip addr show wlp3s0" + grep).size() != 0)
+//            || exec("ip addr show eno1" + grep).size() !=  0)
         return print("", GREEN, "dns");
     return print("", RED, "dns");
 }

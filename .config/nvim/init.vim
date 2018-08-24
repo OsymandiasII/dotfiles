@@ -1,56 +1,51 @@
-"    ____              __    _   ____  ____      ____   _    ________  _________   _____________   ___    _   __
-"   / __ \____ ___  __/ /   ( ) / __ )/ __/___  / __ \ ( )  / ____/ / / / ____/ | / / ____/__  /  /   |  / | / /
-"  / /_/ / __ `/ / / / /    |/ / __  / /_/ __ \/ /_/ / |/  / / __/ / / / __/ /  |/ / __/    / /  / /| | /  |/ /
-" / ____/ /_/ / /_/ / /       / /_/ / __/ /_/ / _, _/     / /_/ / /_/ / /___/ /|  / /___   / /__/ ___ |/ /|  /
-"/_/    \__,_/\__,_/_/       /_____/_/  \____/_/ |_|      \____/\____/_____/_/ |_/_____/  /____/_/  |_/_/ |_/
-"
-" Author : Paul 'BfoR' GUENEZAN
-" Repo   : https://github.com/bifore/dotfiles
-"
-"
-
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'vim-airline/vim-airline' " fancy status line
-Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
+Plug 'morhetz/gruvbox'
 
-Plug 'mhinz/vim-startify' " custom home screen
+Plug 'vim-airline/vim-airline'
 
-Plug 'easymotion/vim-easymotion' " improve motion
-Plug 'octol/vim-cpp-enhanced-highlight' "improve highlighting for C++ 11/14
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'shougo/deoplete.nvim' " asynchronous completion framework
-Plug 'zchee/deoplete-jedi' " deoplete source for Python
-Plug 'zchee/deoplete-clang' " deoplete source for C/C++
+Plug 'airblade/vim-gitgutter'
 
-Plug 'vim-scripts/sieve.vim' " sieve syntax
+Plug 'majutsushi/tagbar'
 
-" Plug 'jacobsimpson/nvim-example-python-plugin' " tmp
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
 
 call plug#end()
 
-syntax on " switch syntax highliting on
+set nocompatible
+set nobackup
+set noswapfile
+set showmatch
+set textwidth=79
+set cursorline
+set colorcolumn=+1
+set background=dark
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+colorscheme gruvbox
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+let g:tagbar_width = 30
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/6.0.1/include'
+
 
 " airline options
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" python client settings
-let g:python_host_prog = 'python2'
-let g:python3_host_prog = 'python'
+set mouse=a
 
-" Disable vi compatibility mode
-set nocompatible
-
-" Use deoplete
-let g:deoplete#enable_at_startup = 1
-" deoplete-clang settings
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang/5.0.0/include'
-
-" Highlight if over 80 c.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+syntax enable
 
 " Reload a file when it is changed from the outside
 set autoread
@@ -74,4 +69,17 @@ set showmatch
 
 set tabstop=4 shiftwidth=4 expandtab
 
-nnoremap <CR> :!./check<CR>
+map <C-Left> <C-W>h
+map <C-Down> <C-W>j
+map <C-Up> <C-W>k
+map <C-Right> <C-W>l
+
+function! SwitchSourceHeader()
+  if (expand ("%:e") == "cpp")
+    find %:t:r.h
+  else
+    find %:t:r.cpp
+  endif
+endfunction
+
+nmap <C-Space> :call SwitchSourceHeader()<CR>

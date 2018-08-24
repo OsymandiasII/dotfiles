@@ -85,7 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 alias wifi-menu="sudo wifi-menu"
-alias clear="echo -ne '\\033c'"
 alias cal="cal -m -n 3"
 
 source .secret

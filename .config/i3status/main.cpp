@@ -1,7 +1,7 @@
 #include "main.h"
 
-#include "utils.h"
 #include "common_blocks.h"
+#include "utils.h"
 #include "spotify_block.h"
 #include "vpn_block.h"
 
@@ -42,19 +42,17 @@ int main()
             frame = 0;
         if(frame % 4 == 0)
             powered = is_powered();
-        int i = blocks.size();
         string current = "[";
-        for(auto block : blocks)
+        for(size_t i = 0; i < blocks.size(); ++i)
         {
-            --i;
-            if(frame % (powered ? block.first.first : block.first.second) == 0)
+            if(frame % (powered ? blocks[i].first.first : blocks[i].first.second) == 0)
             {
-                string t = block.second();
-                jsons[blocks.size() - i] = t;
+                string t = blocks[i].second();
+                jsons[i] = t;
             }
-            string blk = jsons[blocks.size() - i];
+            string blk = jsons[i];
             if(blk.size())
-                current += blk + (i ? ", " : "");
+                current += blk + (i != blocks.size() - 1 ? ", " : "");
         }
         current += "], ";
         if(current != last)
